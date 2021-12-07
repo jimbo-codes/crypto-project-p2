@@ -1,24 +1,15 @@
-// second top level component with product details.
-
-// should always be rendered on page, it should be outside the route stuff in app.js
 import React,{useState} from "react";
 import { Fragment } from 'react'
 import { Disclosure } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 import { Link } from 'react-router-dom';
 
-// import { PlusSmIcon } from '@heroicons/react/solid'
 
-// prebuilt function for Tailwind so you can do the multi class syntax.
-// function classNames(...classes) {
-//   return classes.filter(Boolean).join(' ')
-// }
+// HOW DO WE MAKE THIS NAV BAR PERMASCROLL AS YOU GO DOWN PAGE?
 
-export default function NavBar({auth}) {
+export default function NavBar({auth,name,email,setHome,setAbout,home,about}) {
+
   // nav bar states to display what is active. I feel like tailwind has a built in way to do this, but "active:xyz" wasn't working.
-  const [home, setHome] = useState(true)
-  const [about, setAbout] = useState(false)
-
   function fixNav(){
       // this removes the blue underline for our nav bar pages when launching the app.
     setHome(false);
@@ -43,7 +34,7 @@ export default function NavBar({auth}) {
     setAbout(!about)
     }
 
-  // There has to be a more elegant solution for this ^. but as it stands it works.
+// There has to be a more elegant solution for this ^. but as it stands it works.
 // the below mobile menu can be deleted / should be tweaked to make sure our app also works on mobile. haven't touched yet.
     return (
     <Disclosure as="nav" className="bg-white shadow">
@@ -66,18 +57,20 @@ export default function NavBar({auth}) {
                   </Disclosure.Button>
                 </div>
                 <div className="flex-shrink-0 flex items-center">
-                  
+                <Link to='/'>
                   <img
-                    className="block lg:hidden h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-                    alt="Workflow"
-                  />
+                    className="block lg h-8 w-auto"
+                    src="https://i.ibb.co/ykSpvgM/Recolor-BTC.png"
+                    alt="Jim-Coin"/>
+                  </Link>   
                 </div>
 
                 {/*  Move MD:ML if youw anna center this or movve to right etc. */}
                 <div className="hidden md:ml-8 md:flex md:space-x-8">
                   {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
                   {/* Set your current with onclick prop,  */}
+                  
+              {/* Once authenticated, should clicking on this dashboard button take you back to the app dashboard or the proj home? */}
                   <Link to="/"
                     onClick={handleClickHome}
                     className={home?"border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium":"border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"}>
@@ -119,10 +112,13 @@ export default function NavBar({auth}) {
             </div>
           </div>
 
-{/* It hink this is mobile panel, probably don't want it. See if its needed/useful at all. */}
+{/* This is the small flyout menu. Set the links so that they worked (except the "nothing's") */}
           <Disclosure.Panel className="md:hidden">
             <div className="pt-2 pb-3 space-y-1">
+
+                {/* NEED TO MAKE THE ACTIVE STATE WORK FOR THIS COLLAPSED MENU. Use below class styling. */}
               {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" */}
+              <Link to='/'>
               <Disclosure.Button
                 as="a"
                 href="#"
@@ -130,76 +126,65 @@ export default function NavBar({auth}) {
               >
                 Dashboard
               </Disclosure.Button>
+              </Link>
+              <Link to='/about'>
               <Disclosure.Button
                 as="a"
                 href="#"
                 className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium sm:pl-5 sm:pr-6"
               >
-                Team
+                   Team
+              </Disclosure.Button>
+              </Link>
+             
+              <Disclosure.Button
+                as="a"
+                href="#"
+                className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium sm:pl-5 sm:pr-6"
+              >
+                Nothing
               </Disclosure.Button>
               <Disclosure.Button
                 as="a"
                 href="#"
                 className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium sm:pl-5 sm:pr-6"
               >
-                Projects
-              </Disclosure.Button>
-              <Disclosure.Button
-                as="a"
-                href="#"
-                className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium sm:pl-5 sm:pr-6"
-              >
-                Calendar
+                Nothing2
               </Disclosure.Button>
             </div>
             <div className="pt-4 pb-3 border-t border-gray-200">
               <div className="flex items-center px-4 sm:px-6">
                 <div className="flex-shrink-0">
-                  <img
+                  {auth?<img
                     className="h-10 w-10 rounded-full"
                     src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                     alt=""
-                  />
+                  />:null}
                 </div>
                 <div className="ml-3">
-                  <div className="text-base font-medium text-gray-800">Tom Cook</div>
-                  <div className="text-sm font-medium text-gray-500">tom@example.com</div>
+                  <div className="text-base font-medium text-gray-800">{auth?name:null}</div>
+                  <div className="text-sm font-medium text-gray-500">{auth?email:null}</div>
                 </div>
+                
+              </div>
+        <div className="mt-3  space-y-1">
+            <Disclosure.Button
+                  as="a"
+                  href="/user"
+                  className="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100 sm:px-6"
+            >{auth?"Sign out":"Sign In"}     
                 <button
                   type="button"
-                  className="ml-auto flex-shrink-0 bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                >
+                  className="float-right bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                   <span className="sr-only">View notifications</span>
                   <BellIcon className="h-6 w-6" aria-hidden="true" />
-                </button>
-              </div>
-              <div className="mt-3 space-y-1">
-                <Disclosure.Button
-                  as="a"
-                  href="#"
-                  className="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100 sm:px-6"
-                >
-                  Your Profile
-                </Disclosure.Button>
-                <Disclosure.Button
-                  as="a"
-                  href="#"
-                  className="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100 sm:px-6"
-                >
-                  Settings
-                </Disclosure.Button>
-                <Disclosure.Button
-                  as="a"
-                  href="#"
-                  className="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100 sm:px-6"
-                >
-                  Sign out
-                </Disclosure.Button>
-              </div>
-            </div>
-          </Disclosure.Panel>
-        </>
-      )}
-    </Disclosure>
+            </button>
+            </Disclosure.Button>
+        </div>
+    </div>
+</Disclosure.Panel>
+</>
+)}
+</Disclosure>
   )
 }

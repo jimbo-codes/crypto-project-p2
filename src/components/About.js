@@ -1,5 +1,7 @@
-// an about us page. Brief, Photos, etc.
 import React from "react";
+
+
+//SET THE TWITTER + LINKEDIN + GH Links below so they work.
 
 function About() {
     const people = [
@@ -32,7 +34,7 @@ function About() {
                 <div className="space-y-5 sm:space-y-4">
                   <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">Our Team</h2>
                   <p className="text-xl text-gray-500">
-                    An eclectic collection of dreamers, doers, drinkers, debaters, digresser's, and debaucher-er's.
+                    An eclectic collection of dreamers, doers, drinkers, debaters, digressers, and debaucher-ers.
                   </p>
                 </div>
                 <div className="lg:col-span-2">

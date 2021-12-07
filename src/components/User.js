@@ -1,27 +1,8 @@
-// our "login" page. Consume user information (and store in our db??)
-
-// should be /user route.
-
-// what infor do we want? name, email only I guess
-
 import React,{useState} from "react";
 import { Link } from 'react-router-dom';
-/*
-  This example requires Tailwind CSS v2.0+ 
-  
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/
+
+// Set goback to work with useHistory
+// Try to get google auth working here for fun if possible
 export default function User({setAuth,setName,setEmail,name,email}) {
    
    function handleName(e){
@@ -70,8 +51,8 @@ export default function User({setAuth,setName,setEmail,name,email}) {
           <div className="sm:mx-auto sm:w-full sm:max-w-md">
             <img
               className="mx-auto h-12 w-auto"
-              src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-              alt="Workflow"
+              src="https://i.ibb.co/ykSpvgM/Recolor-BTC.png"
+              alt="Jim-Coin"
             />
             {/* Above figure out what image we want to use */}
 

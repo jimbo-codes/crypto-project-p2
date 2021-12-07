@@ -14,8 +14,8 @@ function App() {
 const [auth, setAuth] = useState(false);
 const [name, setName] = useState('');
 const [email, setEmail] = useState('');
-
-
+const [home, setHome] = useState(true)
+const [about, setAbout] = useState(false)
 // HERE YOU NEED TO CHANGE THIS CALL TO COINGEKO API
 // useEffect(() => {
   
@@ -31,7 +31,8 @@ const [email, setEmail] = useState('');
 // Check if user is logged in, displays the homepage if so
 return (
  <Router>
-    <NavBar auth={auth}/>
+   <Fragment>
+    <NavBar auth={auth} name={name} email={email} setAbout={setAbout} about={about} home={home} setHome={setHome}/>
       <Routes>  
 
       {/* This is our bottom level application with all core functionality */}
@@ -47,9 +48,10 @@ return (
       <Route path="/about" element={<About/>}/>      
       
       {/* This is our "homepage"*/}
-        <Route path="/" element={<ProductHome/>}/>
+        <Route path="/" element={<ProductHome home={home} about={about} setHome={setHome} setAbout={setAbout}/>}/>
 
       </Routes>
+    </Fragment>
       {/* Routes replaces Switch in react-router-dom v6. */}
   {/* 
       <Route path="/user">
