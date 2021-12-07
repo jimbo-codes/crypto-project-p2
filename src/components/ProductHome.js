@@ -9,7 +9,7 @@ import React,{useState} from "react";
 function ProductHome({}) {
     return (      
         <div>
-          Initial landing page of the website. Once you enter as a user this is gone.
+          Initial landing page of the website. Once you login as a user this is gone.
         </div>
       );
     }

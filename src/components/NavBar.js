@@ -3,26 +3,27 @@
 // should always be rendered on page, it should be outside the route stuff in app.js
 import React,{useState} from "react";
 import { Fragment } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
+import { Disclosure } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
-import { PlusSmIcon } from '@heroicons/react/solid'
 import { Link } from 'react-router-dom';
 
+// import { PlusSmIcon } from '@heroicons/react/solid'
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
+// prebuilt function for Tailwind so you can do the multi class syntax.
+// function classNames(...classes) {
+//   return classes.filter(Boolean).join(' ')
+// }
 
-export default function NavBar() {
+export default function NavBar({auth}) {
+  // nav bar states to display what is active. I feel like tailwind has a built in way to do this, but "active:xyz" wasn't working.
   const [home, setHome] = useState(true)
   const [about, setAbout] = useState(false)
-//   const [home, setHome] = useState(false)
-  // you can set three different states for the three different click events... is there a cleaner way to do this?
 
-
-  // going to fix this with a this.isactive. type state thing. Watch a react tutorial tomorrow morning.'
-  // cannot bea s hard as this seems rn
-
+  function fixNav(){
+      // this removes the blue underline for our nav bar pages when launching the app.
+    setHome(false);
+    setAbout(false);
+    }
   function handleClickHome(){
     if(home){
         return
@@ -40,8 +41,10 @@ export default function NavBar() {
         setHome(!home)
     }
     setAbout(!about)
-    
-}
+    }
+
+  // There has to be a more elegant solution for this ^. but as it stands it works.
+// the below mobile menu can be deleted / should be tweaked to make sure our app also works on mobile. haven't touched yet.
     return (
     <Disclosure as="nav" className="bg-white shadow">
       {({ open }) => (
@@ -115,9 +118,11 @@ export default function NavBar() {
                     type="button"
                     className="relative inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                   >
-                    <Link to='/app'>Launch App</Link>
-                    {/* CLICK HERE SENDS YOU TO LINK FOR /USER */}
+                    <Link onClick={fixNav} to={auth?'/app':'/user'}>Launch App</Link>
+                        {/*  does this ternary work? */}
 
+                    {/* CLICK HERE SENDS YOU TO LINK FOR /USER */}
+{/* THIS ONLY GETS EXECUTED IF user state has been set to true from submitting user form. */}
                   </button>
 
                 </div>

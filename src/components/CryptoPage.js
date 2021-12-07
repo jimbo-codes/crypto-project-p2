@@ -6,10 +6,10 @@
 // if making child of user, you could do some on page name based personalized rendering.
 
 import React,{useState} from "react";
-function CryptoPage({}) {
+function CryptoPage({name}) {
     return (      
         <div>
-          Main parent component for actual application
+        Hi {name} This is the Main parent component for our actual application
         </div>
       );
     }
