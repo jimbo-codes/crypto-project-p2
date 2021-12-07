@@ -74,10 +74,11 @@ export default function User({setAuth,setName,setEmail,name,email}) {
               alt="Workflow"
             />
             {/* Above figure out what image we want to use */}
+
             <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Create an Account</h2>
             <p className="mt-2 text-center text-sm text-gray-600">
               Or{' '}
-              {/* Use history to make this a goback button? */}
+              {/* Use history to make this a goback button to either about or home dpeending on where at. Set state for nav bar accordingly.*/}
               <Link to='/'className="font-medium text-indigo-600 hover:text-indigo-500">
                 Go Back
               </Link>

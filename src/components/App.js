@@ -31,7 +31,6 @@ const [email, setEmail] = useState('');
 // Check if user is logged in, displays the homepage if so
 return (
  <Router>
-   <Fragment>
     <NavBar auth={auth}/>
       <Routes>  
 
@@ -51,7 +50,6 @@ return (
         <Route path="/" element={<ProductHome/>}/>
 
       </Routes>
-    </Fragment>
       {/* Routes replaces Switch in react-router-dom v6. */}
   {/* 
       <Route path="/user">
