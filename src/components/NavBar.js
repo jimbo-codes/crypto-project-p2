@@ -109,21 +109,10 @@ export default function NavBar({auth}) {
               </div>
               <div className="flex items-center">
                 <div className="flex-shrink-0">
-                  
-                  
-                  
-                  {/* This is the button to launch your app - change to LINK */}
-                  
-                  <button
-                    type="button"
-                    className="relative inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                  >
-                    <Link onClick={fixNav} to={auth?'/app':'/user'}>Launch App</Link>
-                        {/*  does this ternary work? */}
 
-                    {/* CLICK HERE SENDS YOU TO LINK FOR /USER */}
-{/* THIS ONLY GETS EXECUTED IF user state has been set to true from submitting user form. */}
-                  </button>
+                 {/* THIS ONLY GETS EXECUTED IF user state has been set to true from submitting user form. */}
+                    <Link onClick={fixNav} className="relative inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" to={auth?'/app':'/user'}>Launch App</Link>
+
 
                 </div>
               </div>
