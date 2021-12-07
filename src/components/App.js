@@ -4,10 +4,13 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavBar from './NavBar';
 import About from './About';
 import ProductHome from './ProductHome';
-// route here is not BrowserRouter, that is handled in the top level index.js
-// absolute top level component.
+import User from './User';
+import CryptoPage from './CryptoPage';
+
+
+// our absolute top level component.
 function App() {
-// fetch from DB.json (coingeko 50 coin api ping. We could change this to be a user DB instead)
+// fetch from DB.json (coingeko 50 coin api ping). Need to look into historical on this.
 useEffect(() => {
   fetch('http://localhost:3000/coins')
   .then(r=>r.json())
@@ -23,18 +26,28 @@ return (
  <Router>
    <Fragment>
     <NavBar/>
-    <Routes>  
+      <Routes>  
 
-    {/* This is our "homepage" should in */}
-    <Route path="/" element={<ProductHome/>}>
-    {/* https://stackoverflow.com/questions/69864165/error-privateroute-is-not-a-route-component-all-component-children-of-rou */}
-    {/* The top answer explains how to setup private route based on auth. maybe do for app? user. */}
-    </Route>
-    </Routes>
-  </Fragment>
-    {/* Routes replaces Switch in react-router-dom v6. */}
-{/* 
-    <Route path="/user">
+      {/* This is our bottom level application with all core functionality */}
+      <Route path="/app" element={<CryptoPage/>}/>
+
+        {/* https://stackoverflow.com/questions/69864165/error-privateroute-is-not-a-route-component-all-component-children-of-rou */}
+        {/* The top answer explains how to setup private route based on auth. maybe do for app? user. */}
+
+      {/* This is the user input form */}
+      <Route path="/user" element={<User/>}/>
+
+      {/* This is the about page */}
+      <Route path="/about" element={<About/>}/>      
+      
+      {/* This is our "homepage"*/}
+        <Route path="/" element={<ProductHome/>}/>
+
+      </Routes>
+    </Fragment>
+      {/* Routes replaces Switch in react-router-dom v6. */}
+  {/* 
+      <Route path="/user">
       <User component={User}/>
     </Route> */}
 
