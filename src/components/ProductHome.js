@@ -3,30 +3,13 @@
 
 // Only functionality we care about here:
 
-import { EmojiSadIcon } from "@heroicons/react/outline";
-import React,{useState} from "react";
-import { Fragment } from 'react';
-import { Popover, Transition } from '@headlessui/react'
+import React from "react";
 import {
-  AnnotationIcon,
-  ChatAlt2Icon,
-  ChatAltIcon,
-  DocumentReportIcon,
-  HeartIcon,
-  InboxIcon,
-  MenuIcon,
-  PencilAltIcon,
-  QuestionMarkCircleIcon,
-  ReplyIcon,
-  SparklesIcon,
-  TrashIcon,
   TrendingUpIcon,
   UsersIcon,
-  XIcon,
   TerminalIcon,
   CalculatorIcon
 } from '@heroicons/react/outline'
-import { ChevronDownIcon } from '@heroicons/react/solid'
 import { Link } from "react-router-dom";
 
 // I'd like to eventually put some indicative trading things on this page, think historical returns etc.
@@ -44,7 +27,7 @@ const features = [
   },
   {
     name: 'Statistical Analysis',
-    description: "No more spreadsheets, =mean(...), and pivot tables. Our platform's baked-in statistical analysis gives you all the information with none of the work.",
+    description: "No more spreadsheets, =mean(), or pivot tables. Our platform's baked-in statistical analysis gives you all the information with none of the work.",
     icon: CalculatorIcon,
   },
   {
@@ -137,9 +120,7 @@ const footerNavigation = {
   ],
 }
 
-function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
-  }
+
 function ProductHome({setHome,home}) {
 
     function handleClickHome(e){
@@ -233,7 +214,7 @@ return(
           <div className="max-w-4xl mx-auto px-4 py-16 sm:px-6 sm:pt-20 sm:pb-24 lg:max-w-7xl lg:pt-24 lg:px-8">
             <h2 className="text-3xl font-extrabold text-white tracking-tight">Automate Your Data Analytics</h2>
             <p className="mt-4 max-w-3xl text-lg text-purple-200">
-              In a market that is open 24 hours a day, 7 days a week, and every major holiday - you can't afford to sleep. Because you probably need to, our tools make it so you don't have to.
+              In a market that is open 24 hours a day, 7 days a week, and every major holiday - you can't afford to sleep. Our dashboard saves hours of analysis so you don't forget how comfortable your bed is.
             </p>
             <div className="mt-12 grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4 lg:gap-x-8 lg:gap-y-16">
               {features.map((feature) => (
@@ -284,7 +265,7 @@ return(
               <p className="mt-5 text-lg text-gray-300">
                 The best trader in the world will lose money working with bad Data, you simply cannot afford to be uninformed.
                 We have consolidated and cross-validated data from different providers to deliver a one-stop Data solution.
-                See what our dashboard can do <emphasis>for free.</emphasis>
+                See what our dashboard can do <strong>for free.</strong>
               </p>
               <div className="mt-12 grid grid-cols-1 gap-y-12 gap-x-6 sm:grid-cols-2">
                 {metrics.map((item) => (

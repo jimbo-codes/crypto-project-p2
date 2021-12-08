@@ -17,8 +17,6 @@ export default function User({setAuth,setName,setEmail,name,email}) {
            name: name,
            email: email
        }
-       console.log(userObj)
-       console.log(name)
        fetch('http://localhost:3000/users',{
            method:'POST',
            headers: {
