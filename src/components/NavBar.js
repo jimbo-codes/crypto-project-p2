@@ -52,7 +52,7 @@ export default function NavBar({auth,name,email,setHome,setAbout,home,about}) {
                   </Disclosure.Button>
                 </div>
                 <div className="flex-shrink-0 flex items-center">
-                <Link to='/'>
+                <Link to='/crypto-project-p2/'>
                   <img
                     className="block lg h-8 w-auto"
                     src="https://i.ibb.co/ykSpvgM/Recolor-BTC.png"
@@ -66,7 +66,7 @@ export default function NavBar({auth,name,email,setHome,setAbout,home,about}) {
                   {/* Set your current with onclick prop,  */}
                   
               {/* Once authenticated, should clicking on this dashboard button take you back to the app dashboard or the proj home? */}
-                  <Link to="/"
+                  <Link to="/crypto-project-p2/"
                     onClick={handleClickHome}
                     className={home?"border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium":"border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"}>
                     Home
@@ -111,7 +111,7 @@ export default function NavBar({auth,name,email,setHome,setAbout,home,about}) {
 
                 {/* NEED TO MAKE THE ACTIVE STATE WORK FOR THIS COLLAPSED MENU. Use below class styling. */}
               {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" */}
-              <Link to='/'>
+              <Link to='/crypto-project-p2/'>
               <Disclosure.Button
                 as="a"
                 href="#"
