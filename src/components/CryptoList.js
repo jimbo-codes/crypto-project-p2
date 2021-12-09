@@ -3,7 +3,7 @@
 // import React,{useState} from "react";
 import CryptoData from "./CryptoData";
 
-function CryptoList({table,setSelected}) {
+function CryptoList({table,setSelected, selected}) {
 let index=0;
     return (      
     <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-10">
@@ -32,6 +32,7 @@ let index=0;
                                 {table.map((coin)=>{
                                     index++
                                     return <CryptoData
+                                        selected={selected}
                                         setSelected={setSelected}
                                         key={coin.id}
                                         image={coin.image}

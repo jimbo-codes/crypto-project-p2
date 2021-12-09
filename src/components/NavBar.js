@@ -37,7 +37,7 @@ export default function NavBar({auth,name,email,setHome,setAbout,home,about}) {
 // There has to be a more elegant solution for this ^. but as it stands it works.
 // the below mobile menu can be deleted / should be tweaked to make sure our app also works on mobile. haven't touched yet.
     return (
-    <Disclosure as="nav" className="bg-white shadow">
+    <Disclosure as="nav" className="sticky top-0 z-50 bg-white shadow">
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -65,7 +65,7 @@ export default function NavBar({auth,name,email,setHome,setAbout,home,about}) {
                 </div>
 
                 {/*  Move MD:ML if youw anna center this or movve to right etc. */}
-                <div className="hidden md:ml-8 md:flex md:space-x-8">
+                <div className="md:ml-8 md:flex md:space-x-8">
                   {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
                   {/* Set your current with onclick prop,  */}
                   

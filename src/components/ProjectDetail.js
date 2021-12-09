@@ -43,11 +43,9 @@ function ProjectDetail({ detail,setDetail }) {
         info['commits'] = data.developer_data.commit_count_4_weeks;
 
         return info;
-
     }
 
     // Fetch data on component Render
-
     useEffect(() => {
         fetch(`${BASE_URL}/${params.id}`)
         .then(resp => resp.json())
@@ -55,7 +53,7 @@ function ProjectDetail({ detail,setDetail }) {
             const projectInfo = createObj(data);
             setDetail(projectInfo);
         })
-    }, [])
+    }, [detail])
 
     // JSX to display
     
