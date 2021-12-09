@@ -1,6 +1,6 @@
 import CryptoData from "./CryptoData";
 
-function CryptoList({table,setSelected, selected}) {
+function CryptoList({table}) {
 let index=0;
 // can render the table rows w/ array of info.map.
     return (      
@@ -30,8 +30,6 @@ let index=0;
                                 {table.map((coin)=>{
                                     index++
                                     return <CryptoData
-                                        selected={selected}
-                                        setSelected={setSelected}
                                         key={coin.id}
                                         image={coin.image}
                                         id={coin.id}

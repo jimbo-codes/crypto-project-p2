@@ -1,14 +1,13 @@
 import {useNavigate} from 'react-router-dom';
 
-function SearchBar({searchContent, setSearch, setSelected, selected}) {
+function SearchBar({searchContent, setSearch}) {
   const navigate = useNavigate()
     function handleSubmit(e){
       e.preventDefault();
       let search = searchContent.replace(' ', '-');
+      if(searchContent==='avalanche'){search = 'avalanche-2'}
       setSearch('');
       navigate(`/app/${search}`)
-      // if you use useLocation this bottom line isnt necessary. Same with table links.
-      setSelected(!selected)
     }
     return (      
         <div className="mt-0 mx-2 flex justify-center">

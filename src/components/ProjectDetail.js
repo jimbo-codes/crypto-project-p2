@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import {useParams, useLocation } from "react-router";
 
-function ProjectDetail({ detail,setDetail, selected }) {
+function ProjectDetail({ detail,setDetail}) {
 
     // Declare variables
     let { pathname } = useLocation();
@@ -18,23 +18,22 @@ function ProjectDetail({ detail,setDetail, selected }) {
     // Helper function to create smaller data object
 
     function createObj(data) {
-    console.log(data)
+    // console.log(data)
         let info = {};
-        let image = data.image.small
-        // Market 
+        // let image = data.image.small
 
+        // Market 
         info['Name'] = data.name;
-        // info['image'] = data.image.small;
         let price = data.market_data.current_price.usd
         if(price>100){
-        info['Price'] = data.market_data.current_price.usd.toLocaleString('en-US');
+        info['Price'] = price.toLocaleString('en-US');
          }else if(price>2){
-            info['Price'] = data.market_data.current_price.usd.toFixed(2);
+            info['Price'] = price.toFixed(2);
          }else if(price===1){
-            info['Price'] = data.market_data.current_price.usd.toFixed(2);
+            info['Price'] = price.toFixed(2);
          }
          else{
-            info['Price'] = data.market_data.current_price.usd.toFixed(6);
+            info['Price'] = price.toFixed(6);
          }
         info['WoW Price Change'] = `${data.market_data.price_change_percentage_7d.toFixed(1)}`;
 
@@ -68,7 +67,6 @@ function ProjectDetail({ detail,setDetail, selected }) {
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [pathname])
-    // selected to make this work
 
     // JSX to display
 
