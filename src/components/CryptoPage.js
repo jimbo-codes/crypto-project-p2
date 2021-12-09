@@ -4,13 +4,13 @@ import ProjectDetail from "./ProjectDetail";
 import CryptoList from './CryptoList';
 import { Route, Routes } from "react-router";
 
-function CryptoPage({name, table, global}) {
+function CryptoPage({name, table, global }) {
     const [selected, setSelected] = useState(false)
     const [detail, setDetail] = useState([]);
     const [searchContent, setSearch] = useState('');
     return (      
         <div>
-            <SearchBar searchContent={searchContent} setSearch={setSearch}/>
+            <SearchBar searchContent={searchContent} setSearch={setSearch} setSelected={setSelected} selected={selected}/>
             <Routes>
                 <Route path=":id" element={<ProjectDetail selected={selected}detail={detail} setDetail={setDetail}/>} />
             </Routes>

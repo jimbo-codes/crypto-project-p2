@@ -1,11 +1,11 @@
 // import { info } from "autoprefixer";
 import React, { useEffect } from "react";
-import {useParams } from "react-router";
+import {useParams, useLocation } from "react-router";
 
 function ProjectDetail({ detail,setDetail, selected }) {
 
     // Declare variables
-
+    let { pathname } = useLocation();
     const BASE_URL = 'https://api.coingecko.com/api/v3/coins'
     const params = useParams();
 
@@ -18,7 +18,7 @@ function ProjectDetail({ detail,setDetail, selected }) {
     // Helper function to create smaller data object
 
     function createObj(data) {
-console.log(data)
+    console.log(data)
         let info = {};
         let image = data.image.small
         // Market 
@@ -67,8 +67,9 @@ console.log(data)
             setDetail(projectInfo);
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [selected])
-    
+    }, [pathname])
+    // selected to make this work
+
     // JSX to display
 
     return (
