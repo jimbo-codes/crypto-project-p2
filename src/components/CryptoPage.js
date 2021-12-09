@@ -19,12 +19,12 @@ function CryptoPage({name, table}) {
     return (      
         <div>
             <SearchBar/>
-            <div>
+            <div className="py-4">
                 {selected?<SelectedData/>:null}
                 {/* Set this "selected" state on search or button press. */}
                 Hi {name}!! This is the Main parent component for our actual application
             </div>
-            <CryptoList table={table}/>
+            <CryptoList setSelected={setSelected} table={table}/>
         </div>
       );
     }

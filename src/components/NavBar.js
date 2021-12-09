@@ -45,7 +45,6 @@ export default function NavBar({auth,name,email,setHome,setAbout,home,about}) {
               <div className="flex">
                 <div className="-ml-2 mr-2 flex items-center md:hidden">
                   
-                  
                   {/* Mobile menu button */}
                   <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                     <span className="sr-only">Open main menu</span>
@@ -84,7 +83,7 @@ export default function NavBar({auth,name,email,setHome,setAbout,home,about}) {
                     About
                   </Link>
                   <a
-                    href="#"
+                    href="/"
                     name="nothing"
                     // onClick={handleClick}
                     className={"border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"}
@@ -92,7 +91,7 @@ export default function NavBar({auth,name,email,setHome,setAbout,home,about}) {
                     Nothing
                   </a>
                   <a
-                    href="#"
+                    href="/"
                     // onClick={handleClick}
                     className={"border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"}
                   >

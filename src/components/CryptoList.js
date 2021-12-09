@@ -1,34 +1,61 @@
 // render the full list of data returned from App level fetch
 // .map across the array to populate the table.
-import React,{useState} from "react";
+// import React,{useState} from "react";
 import CryptoData from "./CryptoData";
 
-function CryptoList({table}) {
+function CryptoList({table,setSelected}) {
 console.log(table)
-// const first = [table[1],table[2]];
-//first={first}
+let index=0;
     return (      
-        <table className="table table-striped">
-      <thead>
-        <tr>
-          <th scope="col">Name</th>
-          <th scope="col">Price</th>
-          <th scope="col">24H Change</th>
-          <th scope="col">Edit</th>
-        </tr>
-      </thead>
-      <tbody>
-      {table.map((coin)=>{
-          return <CryptoData 
-          name={coin.id}
-          price={coin.current_price}
-        //   List out what else you want
-          />
-          })}
-      </tbody>
-    </table>
-   
-      );
-    }
+    <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-10">
+        <div className="flex flex-col">
+            <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 bg-gray-200">
+                <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                    <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                        {/* Set the background for your table below */}
+                      <table className="min-w-full divide-y divide-gray-200" id="market-table">
+                        <thead className="bg-gray-50">
+                            <tr className="bg-indigo-600">
+                            <th scope="col" className="px-1 py-3 text-left text-xs font-medium text-white uppercase tracking-wider" ></th>
+                                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                    Name
+                                </th>
+                                <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-white uppercase tracking-wider" >Price</th>
+                                <th scope="col" className="px-2 py-3 text-center text-xs font-medium text-white uppercase tracking-wider">24H Change</th>
+                                <th scope="col" className="px-6 py-3 text-center text-xs font-medium text-white uppercase tracking-wider">Mkt Cap</th>
+                                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Total Supply</th>
+                                <th scope="col" className="px-6 py-3 text-center text-xs font-medium text-white uppercase tracking-wider">Volume</th>
+                                <th scope="col" className="px-6 py-3 text-center text-xs font-medium text-white uppercase tracking-wider">Market Cap Rank</th>
+                                <th scope="col" className="px-6 py-3 text-center text-xs font-medium text-white uppercase tracking-wider">View</th>
+                            </tr>
+                        </thead>
+                            <tbody>
+                                {table.map((coin)=>{
+                                    index++
+                                    return <CryptoData
+                                        setSelected={setSelected}
+                                        key={coin.id}
+                                        image={coin.image}
+                                        id={coin.id}
+                                        name={coin.name}
+                                        price={coin.current_price}
+                                        dodChg={coin.price_change_percentage_24h}
+                                        mktCap={coin.market_cap}
+                                        mktCapRank={coin.market_cap_rank}
+                                        maxSupply={coin.max_supply}
+                                        volume={coin.total_volume}
+                                        index={index}
+                                    //   List out what else you want
+                                    />
+                                })}
+                            </tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    );
+}
     
 export default CryptoList;

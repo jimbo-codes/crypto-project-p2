@@ -263,7 +263,7 @@ return(
                 Good Data leads to Good trades.
               </p>
               <p className="mt-5 text-lg text-gray-300">
-                The best trader in the world will lose money working with bad Data, you simply cannot afford to be uninformed.
+                The best trader in the world will lose money working with bad data, you simply cannot afford to be uninformed.
                 We have consolidated and cross-validated data from different providers to deliver a one-stop Data solution.
                 See what our dashboard can do <strong>for free.</strong>
               </p>

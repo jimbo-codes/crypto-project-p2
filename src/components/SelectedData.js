@@ -4,11 +4,12 @@
 
 // if we can would love to also incorporate a graph here.
 
-import React,{useState} from "react";
-function SelectedData({}) {
+// import React,{useState} from "react";
+
+function SelectedData() {
     return (      
         <div>
-          Data
+          You found the data!
         </div>
       );
     }

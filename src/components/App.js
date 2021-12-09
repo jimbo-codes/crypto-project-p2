@@ -1,5 +1,5 @@
 import '../App.css';
-import React,{useState,useEffect, Fragment} from "react";
+import React,{useState,useEffect} from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavBar from './NavBar';
 import About from './About';
@@ -88,37 +88,20 @@ return (
  <Router>
     <NavBar auth={auth} name={name} email={email} setAbout={setAbout} about={about} home={home} setHome={setHome}/>
       <Routes>  
-
       {/* Bottom level application with all core functionality */}
       <Route path="/app" element={<CryptoPage name={name} table={table}/>}/>
 
-        {/* https://stackoverflow.com/questions/69864165/error-privateroute-is-not-a-route-component-all-component-children-of-rou */}
-        {/* The top answer explains how to setup private route based on auth. maybe do for app? user. */}
-{/* Add the conditional pathing, if the user state has been ste to true from form completion, then send it to app. */}
       {/* This is the user input form */}
       <Route path="/user" element={<User name={name} setName={setName} email={email} setEmail={setEmail} setAuth={setAuth}/>}/>
 
       {/* This is the about page */}
-      <Route path="/about" element={<About/>}/>      
+      <Route path='/about' element={<About/>}/>      
       
       {/* This is our "homepage"*/}
         <Route path="/" element={<ProductHome home={home} about={about} setHome={setHome} setAbout={setAbout}/>}/>
-
       </Routes>
       {/* Routes replaces Switch in react-router-dom v6. */}
-  {/* 
-      <Route path="/user">
-      <User component={User}/>
-    </Route> */}
-
-    {/* <Route path="/about">
-      <About element={<About/>}/>
-    </Route> */}
-</Router>
-
-    
-  
+  </Router>  
   );
 }
-
 export default App;
