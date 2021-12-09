@@ -55,10 +55,10 @@ function ProjectDetail({ detail,setDetail }) {
             const projectInfo = createObj(data);
             setDetail(projectInfo);
         })
-    }, [])
+    }, [detail])
 
     // JSX to display
-    
+
     return <h1>{detail.name}</h1>
 }
 
