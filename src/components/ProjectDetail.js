@@ -2,7 +2,7 @@ import { info } from "autoprefixer";
 import React, { useEffect } from "react";
 import { Routes,Route,useParams } from "react-router";
 
-function ProjectDetail({ detail,setDetail }) {
+function ProjectDetail({ detail,setDetail, selected }) {
 
     // Declare variables
 
@@ -44,12 +44,8 @@ function ProjectDetail({ detail,setDetail }) {
 
         const result = Object.keys(info).map((key) => ({name: key, stat: info[key]}));
 
-<<<<<<< HEAD
-        return info;
-=======
         return result;
 
->>>>>>> 396689fda3b3d23a009422178738c380602f6267
     }
 
     // Fetch data on component Render
@@ -59,8 +55,9 @@ function ProjectDetail({ detail,setDetail }) {
         .then(data => {
             const projectInfo = createObj(data);
             setDetail(projectInfo);
+            console.log('test')
         })
-    }, [detail])
+    }, [selected])
 
     // JSX to display
 

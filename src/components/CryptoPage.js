@@ -16,14 +16,13 @@ import { Route, Routes } from "react-router";
 function CryptoPage({name, table}) {
     // The full coin data gets passed down to render -> List, List does the Data & repeat
     const [selected, setSelected] = useState(false)
-    const [detail, setDetail] = useState({});
+    const [detail, setDetail] = useState([]);
     const [searchContent, setSearch] = useState('');
     return (      
         <div>
             <SearchBar searchContent={searchContent} setSearch={setSearch}/>
-
             <Routes>
-                <Route path=":id" element={<ProjectDetail detail={detail} setDetail={setDetail}/>} />
+                <Route path=":id" element={<ProjectDetail selected={selected}detail={detail} setDetail={setDetail}/>} />
             </Routes>
             <CryptoList selected={selected} setSelected={setSelected} table={table}/>
         </div>
