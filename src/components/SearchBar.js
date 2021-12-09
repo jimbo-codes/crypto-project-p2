@@ -5,6 +5,7 @@ function SearchBar({searchContent, setSearch}) {
     function handleSubmit(e){
       e.preventDefault();
       let search = searchContent.replace(' ', '-');
+      search = search.toLowerCase();
       if(searchContent==='avalanche'){search = 'avalanche-2'}
       setSearch('');
       navigate(`/app/${search}`)

@@ -20,7 +20,7 @@ let index=0;
                                 <th scope="col" className="px-4 py-3 text-left text-xs font-medium text-white uppercase tracking-wider" >Price</th>
                                 <th scope="col" className="px-2 py-3 text-center text-xs font-medium text-white uppercase tracking-wider">24H Change</th>
                                 <th scope="col" className="px-6 py-3 text-center text-xs font-medium text-white uppercase tracking-wider">Mkt Cap</th>
-                                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Total Supply</th>
+                                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Max Supply</th>
                                 <th scope="col" className="px-6 py-3 text-center text-xs font-medium text-white uppercase tracking-wider">Volume</th>
                                 <th scope="col" className="px-6 py-3 text-center text-xs font-medium text-white uppercase tracking-wider">Market Cap Rank</th>
                                 <th scope="col" className="px-6 py-3 text-center text-xs font-medium text-white uppercase tracking-wider">View</th>

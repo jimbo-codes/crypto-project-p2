@@ -6,7 +6,10 @@ function Global({global}) {
         let vol = Math.round(global.data.total_volume.usd).toLocaleString("en-US");    
         let btc = global.data.market_cap_percentage.btc.toFixed(2)
         let eth = global.data.market_cap_percentage.eth.toFixed(2)
-
+        let time = global.data.updated_at
+        time = Date(time * 1000)
+        console.log(time)
+        
       return (
         <nav className="sticky border-t-2 top-0 z-50 flex justify-center bg-white shadow">
           <ol className="relative items-start space-x-4 text-sm">
