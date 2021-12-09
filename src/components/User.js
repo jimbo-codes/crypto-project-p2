@@ -130,7 +130,7 @@ export default function User({setAuth,setName,setEmail,name,email}) {
                   <Link to='/app'
                   onClick={handleClick}
                     // type="submit"
-                    // How can we edit this default post behavior? I'd like to post to db.json instead
+                    // Still needs form validation
                     className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                   >
                     Sign in

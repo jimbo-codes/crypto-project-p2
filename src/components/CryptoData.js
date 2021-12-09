@@ -27,17 +27,11 @@ if(maxSupply){
     maxSupply = maxSupply.toLocaleString("en-US")
 }
 
-// ternary for red's in the initial render
-
-// can you format these things up here?
-
-// do we like the supply centered or not?
-// do we want the name of coin to look like a hyperlink?
 return (      
           <tr className="hover:bg-white">
               {/* Set the name data to have image */}
       <td className="px-1 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{index}.</td>
-      <td className="px-0 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><img className="float-left w-6 pr-1" src={image} alt={name}/><Link to={`/app/${id}`} onClick={()=>window.scrollTo(0, 0)}>{name}</Link></td>
+      <td className="px-0 py-4 whitespace-nowrap text-sm font-medium text-blue-600 underline"><img className="float-left w-6 pr-1" src={image} alt={name}/><Link to={`/app/${id}`} onClick={()=>window.scrollTo(0, 0)}>{name}</Link></td>
       <td className="px-2 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{price}</td>
       {/* conditional formatting based on the band of price, ex how many decimals to show. */}
 

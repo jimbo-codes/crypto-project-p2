@@ -21,10 +21,7 @@ function CryptoPage({name, table}) {
     return (      
         <div>
             <SearchBar searchContent={searchContent} setSearch={setSearch}/>
-            <div className="py-4">
-                {/* Set this "selected" state on search or button press. */}
-                Hi {name}!! This is the Main parent component for our actual application
-            </div>
+
             <Routes>
                 <Route path=":id" element={<ProjectDetail detail={detail} setDetail={setDetail}/>} />
             </Routes>
