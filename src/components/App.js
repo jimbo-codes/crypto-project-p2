@@ -89,13 +89,13 @@ return (
     <NavBar auth={auth} name={name} email={email} setAbout={setAbout} about={about} home={home} setHome={setHome}/>
       <Routes>  
       {/* Bottom level application with all core functionality */}
-      <Route path="/app" element={<CryptoPage name={name} table={table}/>}/>
+      <Route path="app/*" element={<CryptoPage name={name} table={table}/>}/>
 
       {/* This is the user input form */}
-      <Route path="/user" element={<User name={name} setName={setName} email={email} setEmail={setEmail} setAuth={setAuth}/>}/>
+      <Route path="user/*" element={<User name={name} setName={setName} email={email} setEmail={setEmail} setAuth={setAuth}/>}/>
 
       {/* This is the about page */}
-      <Route path='/about' element={<About/>}/>      
+      <Route path='about' element={<About/>}/>      
       
       {/* This is our "homepage"*/}
         <Route path="/" element={<ProductHome home={home} about={about} setHome={setHome} setAbout={setAbout}/>}/>
