@@ -49,7 +49,7 @@ return (
       <Route path='about' element={<About/>}/>      
       
       {/* This is our "homepage"*/}
-        <Route path="/jimbo-codes.github.io/crypto-project-p2/" element={<ProductHome home={home} about={about} setHome={setHome} setAbout={setAbout}/>}/>
+        <Route path="/" element={<ProductHome home={home} about={about} setHome={setHome} setAbout={setAbout}/>}/>
       </Routes>
       {/* Routes replaces Switch in react-router-dom v6. */}
   </Router>  
