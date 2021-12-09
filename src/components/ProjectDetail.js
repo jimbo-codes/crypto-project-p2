@@ -56,7 +56,7 @@ function ProjectDetail({ detail,setDetail }) {
     }, [detail])
 
     // JSX to display
-    
+
     return <h1>{detail.name}</h1>
 }
 
