@@ -4,17 +4,7 @@ import ProjectDetail from "./ProjectDetail";
 import CryptoList from './CryptoList';
 import { Route, Routes } from "react-router";
 
-// This is our top level actual application component. (A child of User?) it holds:
-// portfolio
-// mainHero (the top div, basically what we did for our P1 application)
-// TopTable
-
-// if making child of user, you could do some on page name based personalized rendering.
-
-// RE: Coingeko API - you can set # of things returned per page, and paginate through results
-
-function CryptoPage({name, table}) {
-    // The full coin data gets passed down to render -> List, List does the Data & repeat
+function CryptoPage({name, table, global}) {
     const [selected, setSelected] = useState(false)
     const [detail, setDetail] = useState([]);
     const [searchContent, setSearch] = useState('');

@@ -4,8 +4,6 @@ import { Disclosure } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 import { Link } from 'react-router-dom';
 
-
-
 export default function NavBar({auth,name,email,setHome,setAbout,home,about}) {
   // nav bar states to display what is active. I feel like tailwind has a built in way to do this, but "active:xyz" wasn't working.
   function fixNav(){
@@ -35,10 +33,10 @@ export default function NavBar({auth,name,email,setHome,setAbout,home,about}) {
 // There has to be a more elegant solution for this ^. but as it stands it works.
 // the below mobile menu can be deleted / should be tweaked to make sure our app also works on mobile. haven't touched yet.
     return (
-    <Disclosure as="nav" className="sticky top-0 z-50 bg-white shadow">
+    <Disclosure as="nav" className="bg-white shadow">
       {({ open }) => (
         <>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between h-16">
               <div className="flex">
                 <div className="-ml-2 mr-2 flex items-center md:hidden">
@@ -97,11 +95,9 @@ export default function NavBar({auth,name,email,setHome,setAbout,home,about}) {
                   </a> */}
                 </div>
               </div>
-              <div className="flex items-center">
-                <div className="flex-shrink-0">
-
-                 {/* THIS ONLY GETS EXECUTED IF user state has been set to true from submitting user form. */}
-                    <Link onClick={fixNav} className="relative inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" to={auth?'/app':'/user'}>Launch App</Link>
+              <div className="absolute items-center right-3 mt-3 object-right">
+                <div className="right-0 object-right">
+                    <Link onClick={fixNav} className="right-px relative inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" to={auth?'/app':'/user'}>Launch App</Link>
 
 
                 </div>
@@ -109,7 +105,7 @@ export default function NavBar({auth,name,email,setHome,setAbout,home,about}) {
             </div>
           </div>
 
-{/* This is the small flyout menu. Set the links so that they worked (except the "nothing's") */}
+            {/* This is the small flyout menu. Set the links so that they worked (except the "nothing's") */}
           <Disclosure.Panel className="md:hidden">
             <div className="pt-2 pb-3 space-y-1">
 
@@ -141,13 +137,7 @@ export default function NavBar({auth,name,email,setHome,setAbout,home,about}) {
               >
                 Nothing
               </Disclosure.Button>
-              <Disclosure.Button
-                as="a"
-                href="#"
-                className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium sm:pl-5 sm:pr-6"
-              >
-                Nothing2
-              </Disclosure.Button> */}
+              */}
             </div>
             <div className="pt-4 pb-3 border-t border-gray-200">
               <div className="flex items-center px-4 sm:px-6">
@@ -183,5 +173,5 @@ export default function NavBar({auth,name,email,setHome,setAbout,home,about}) {
 </>
 )}
 </Disclosure>
-  )
+)
 }

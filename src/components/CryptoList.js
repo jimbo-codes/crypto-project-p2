@@ -1,12 +1,10 @@
-// render the full list of data returned from App level fetch
-// .map across the array to populate the table.
-// import React,{useState} from "react";
 import CryptoData from "./CryptoData";
 
 function CryptoList({table,setSelected, selected}) {
 let index=0;
+// can render the table rows w/ array of info.map.
     return (      
-    <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-10">
+    <div className=" mx-auto sm:px-6 lg:px-8 space-y-10 py-8">
         <div className="flex flex-col">
             <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 bg-gray-200">
                 <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -45,7 +43,6 @@ let index=0;
                                         maxSupply={coin.max_supply}
                                         volume={coin.total_volume}
                                         index={index}
-                                    //   List out what else you want
                                     />
                                 })}
                             </tbody>

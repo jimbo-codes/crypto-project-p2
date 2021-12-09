@@ -1,19 +1,16 @@
 import {useNavigate} from 'react-router-dom';
-// need to set the background of this to something, re style slightly, etc. (make search a small mag icon, etc.)
-// shrink the searchbar too, etc.
-
-// import React,{useState} from "react";
 
 function SearchBar({searchContent, setSearch}) {
   const navigate = useNavigate()
     function handleSubmit(e){
       e.preventDefault();
-      let search = searchContent;
+      let search = searchContent.replace(' ', '-');
       setSearch('');
       navigate(`/app/${search}`)
+
     }
     return (      
-        <div className="mt-0 max-w-md mx-2 justify-right">
+        <div className="mt-0 mx-2 flex justify-center">
             <div className="mt-0 sm:mt-4">
             <p className="text-sm text-gray-400">Search for any project you're interested in... ex: 'solana'</p>
                 <form id='searchForm' action="#" onSubmit={handleSubmit} className="sm:max-w-xl sm:mx-auto lg:mx-0">

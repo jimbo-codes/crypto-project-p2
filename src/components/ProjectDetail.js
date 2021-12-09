@@ -1,6 +1,6 @@
-import { info } from "autoprefixer";
+// import { info } from "autoprefixer";
 import React, { useEffect } from "react";
-import { Routes,Route,useParams } from "react-router";
+import {useParams } from "react-router";
 
 function ProjectDetail({ detail,setDetail, selected }) {
 
@@ -18,15 +18,25 @@ function ProjectDetail({ detail,setDetail, selected }) {
     // Helper function to create smaller data object
 
     function createObj(data) {
-
+console.log(data)
         let info = {};
-
+        let image = data.image.small
         // Market 
 
         info['Name'] = data.name;
         // info['image'] = data.image.small;
-        info['Price'] = numberWithCommas(data.market_data.current_price.usd);
-        info['WoW Price Change'] = `${data.market_data.price_change_percentage_7d.toFixed(1)} %`;
+        let price = data.market_data.current_price.usd
+        if(price>100){
+        info['Price'] = data.market_data.current_price.usd.toLocaleString('en-US');
+         }else if(price>2){
+            info['Price'] = data.market_data.current_price.usd.toFixed(2);
+         }else if(price===1){
+            info['Price'] = data.market_data.current_price.usd.toFixed(2);
+         }
+         else{
+            info['Price'] = data.market_data.current_price.usd.toFixed(6);
+         }
+        info['WoW Price Change'] = `${data.market_data.price_change_percentage_7d.toFixed(1)}`;
 
         // Social
 
@@ -55,10 +65,10 @@ function ProjectDetail({ detail,setDetail, selected }) {
         .then(data => {
             const projectInfo = createObj(data);
             setDetail(projectInfo);
-            console.log('test')
         })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selected])
-
+    
     // JSX to display
 
     return (
@@ -70,7 +80,7 @@ function ProjectDetail({ detail,setDetail, selected }) {
             {detail.map((item) => (
                 <div key={item.name} className="px-4 py-5 bg-white shadow rounded-lg overflow-hidden sm:p-6">
                     <dt className="text-sm font-medium text-gray-500 truncate">{item.name}</dt>
-                    <dd className="mt-1 text-3xl font-semibold text-gray-900">{item.stat}</dd>
+                    <dd className="mt-1 text-3xl font-semibold text-gray-900" style={item.name==='WoW Price Change'?item.stat<0?{color: "red",}:{color: 'green'}:{color: 'black'}}>{item.name==='WoW Price Change'?item.stat+'%':item.stat}</dd>
                 </div>
         ))}
         </dl>

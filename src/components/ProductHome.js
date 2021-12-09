@@ -1,8 +1,3 @@
-// This and NavBar are the two top level (non-app) components.
-// This is basically a generic website landing page. Can flesh this out as a stretch deliverable
-
-// Only functionality we care about here:
-
 import React from "react";
 import {
   TrendingUpIcon,
@@ -13,7 +8,6 @@ import {
 import { Link } from "react-router-dom";
 
 // I'd like to eventually put some indicative trading things on this page, think historical returns etc.
-// Delete the ones you're not gonna use here.
 const features = [
   {
     name: 'Developer Data',

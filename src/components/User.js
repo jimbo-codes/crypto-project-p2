@@ -1,10 +1,6 @@
-// import React,{useState} from "react";
 import { Link } from 'react-router-dom';
-
-// Set goback to work with useHistory
 // Try to get google auth working here for fun if possible
 export default function User({setAuth,setName,setEmail,name,email}) {
-   
    function handleName(e){
        setName(e.target.value)
    }

@@ -1,7 +1,5 @@
 import React from "react";
-
-
-//SET THE TWITTER + LINKEDIN + GH Links below so they work.
+//can set the twitter/gh/linkedin Links below so they work.
 
 function About() {
     const people = [
