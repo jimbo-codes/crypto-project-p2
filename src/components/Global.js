@@ -12,16 +12,16 @@ function Global({global}) {
         
       return (
         <nav className="sticky border-t-2 top-0 z-50 flex justify-center bg-white shadow">
-          <ol className="relative items-start space-x-4 text-sm">
+          <ol className=" space-x-4 text-sm">
                 <div className="inline-block">
                     <strong>Coins:</strong> {coins}
                 </div>
                 {/* Set this to x.00 Trillion */}
                 <div className="inline-block">
-                    <strong>Market Cap:</strong> {cap}
+                    <strong>Market Cap:</strong> ${cap}
                 </div>
                 <div className="inline-block">
-                <strong>24H Vol:</strong> {vol}
+                <strong>24H Vol:</strong> ${vol}
                 </div>
                 <div className="inline-block">
                     <div className="inline-block">

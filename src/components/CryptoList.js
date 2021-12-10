@@ -1,6 +1,6 @@
 import CryptoData from "./CryptoData";
 
-function CryptoList({table}) {
+function CryptoList({table, round}) {
 let index=0;
 // can render the table rows w/ array of info.map.
     return (      
@@ -31,6 +31,7 @@ let index=0;
                                     index++
                                     return <CryptoData
                                         key={coin.id}
+                                        round={round}
                                         image={coin.image}
                                         id={coin.id}
                                         name={coin.name}

@@ -16,6 +16,7 @@ const [home, setHome] = useState(true);
 const [about, setAbout] = useState(false);
 const [table, setTable] = useState([]);
 const [global, setGlobal] = useState({name:'loading'});
+const [trend, setTrend] = useState(['loading']);
 
 useEffect(() => {
   fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd')
@@ -31,6 +32,13 @@ useEffect(() => {
   .catch(error=> {
     console.log(error)})
 },[])
+useEffect(() => {
+  fetch('https://api.coingecko.com/api/v3/search/trending')
+  .then(r=>r.json())
+  .then(data=> {setTrend(data)})
+  .catch(error=> {
+    console.log(error)})
+},[])
 
 return (
  <Router>
@@ -40,7 +48,7 @@ return (
   </div>
     <Routes>  
       {/* Bottom level application with all core functionality */}
-      <Route path="app/*" element={<CryptoPage global={global} name={name} table={table}/>}/>
+      <Route path="app/*" element={<CryptoPage trend={trend} global={global} name={name} table={table}/>}/>
 
       {/* This is the user input form */}
       <Route path="user/*" element={<User name={name} setName={setName} email={email} setEmail={setEmail} setAuth={setAuth}/>}/>
